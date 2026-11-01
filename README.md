@@ -53,9 +53,18 @@ Automated checks can prove that every key, paragraph, link and number survived t
 
 v0.1 is early. So far:
 
-- **Tested end to end:** `make-multilingual` on a Next.js 16 App Router site (fixture `app-router-marketing`, English → Dutch). The English pages stayed word-for-word identical; build, SEO and parity checks passed; the review pass found and fixed real errors.
-- **Tested via evals:** stopping with options on a static-export site; not triggering on a one-off translation request.
-- **Not yet tested end to end:** the Pages Router path, MDX content, and `add-language` on a site that already has a profile. The fixtures and eval cases for these exist (`fixtures/`, `evals/`); reports from real projects are very welcome.
+Each path below has had one full run (translators, reviewers and verification included). One run per path is a smoke test, not a guarantee; reports from real projects are very welcome.
+
+| Path | Fixture | Result |
+|---|---|---|
+| `make-multilingual`, App Router | `app-router-marketing` → Dutch | build, regression gate (English unchanged), SEO and parity pass |
+| `make-multilingual`, Pages Router | `pages-router-site` → Spanish | build, regression gate, SEO and parity pass |
+| `make-multilingual`, MDX content | `app-router-mdx-blog` → German | build, regression gate, SEO and parity pass |
+| `add-language` on an existing profile | `app-router-marketing-nl` → German | build, parity pass; SEO passes on all 18 pages via the in-process production handler (the sandbox allowed no listening server) |
+| Static export | `pages-router-site` with `output: 'export'` | stops and offers options |
+| One-off translation request | — | does not trigger |
+
+Inside the eval sandbox no local port can be bound, so served-build checks ran through Next.js's production request handler in-process, and hydration was not checked in a browser.
 
 ## The project profile
 
