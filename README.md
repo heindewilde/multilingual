@@ -73,7 +73,7 @@ A run uses several parallel agents for translation and review, so it uses notice
 The process lives in `shared/` and is framework-neutral; framework knowledge lives in each skill's `references/`. To add a framework, add a reference for it (setup, routing, content loading, SEO), extend the preflight in `skills/make-multilingual/SKILL.md`, and add a fixture and eval case under `fixtures/` and `evals/`. Run the suite with:
 
 ```
-claude plugin eval . --scaffold --trust-plugin --ablation none --runs 1 \
+NEXT_TELEMETRY_DISABLED=1 claude plugin eval . --scaffold --trust-plugin --ablation none --runs 1 \
   --allow-tools Write Edit Bash "WebFetch(domain:registry.npmjs.org)"
 ```
 

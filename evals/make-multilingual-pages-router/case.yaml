@@ -5,5 +5,3 @@ context:
 execution:
   timeout_seconds: 5400
   max_turns: 600
-  env:
-    NEXT_TELEMETRY_DISABLED: "1"
