@@ -1,0 +1,11 @@
+{
+  "name": "multilingual",
+  "displayName": "Multilingual",
+  "version": "0.1.0",
+  "description": "Turn a monolingual Next.js site into a multilingual one, then add languages with full-parity translation, an independent native-editor review and an SEO verification gate.",
+  "author": { "name": "Hein de Wilde", "url": "https://github.com/heindewilde" },
+  "homepage": "https://github.com/heindewilde/multilingual",
+  "repository": "https://github.com/heindewilde/multilingual",
+  "license": "MIT",
+  "keywords": ["i18n", "localization", "translation", "next.js", "next-intl", "seo", "hreflang"]
+}

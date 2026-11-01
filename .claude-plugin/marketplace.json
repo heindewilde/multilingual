@@ -1,0 +1,15 @@
+{
+  "name": "multilingual",
+  "description": "Plugins for making websites multilingual with Claude Code.",
+  "owner": {
+    "name": "Hein de Wilde",
+    "url": "https://github.com/heindewilde"
+  },
+  "plugins": [
+    {
+      "name": "multilingual",
+      "source": "./",
+      "description": "Make a Next.js site multilingual and add languages with a translate, review and verify process."
+    }
+  ]
+}
