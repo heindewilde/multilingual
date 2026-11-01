@@ -49,6 +49,14 @@ Automated checks can prove that every key, paragraph, link and number survived t
 - Not yet: other frameworks, content in a headless CMS or a database. Contributions welcome — see below.
 - Static exports (`output: 'export'`) can't keep your existing URLs unprefixed; the plugin explains the options and asks before going on.
 
+### What has been tested end to end
+
+v0.1 is early. So far:
+
+- **Tested end to end:** `make-multilingual` on a Next.js 16 App Router site (fixture `app-router-marketing`, English → Dutch). The English pages stayed word-for-word identical; build, SEO and parity checks passed; the review pass found and fixed real errors.
+- **Tested via evals:** stopping with options on a static-export site; not triggering on a one-off translation request.
+- **Not yet tested end to end:** the Pages Router path, MDX content, and `add-language` on a site that already has a profile. The fixtures and eval cases for these exist (`fixtures/`, `evals/`); reports from real projects are very welcome.
+
 ## The project profile
 
 `make-multilingual` writes `.claude/multilingual/profile.md` and one `locales/<code>.md` per language into your repo. They record the source language, the files a new locale must touch, how content is split between agents, your build and check commands, and decisions such as the form of address and the glossary. Commit them: the next `add-language` run follows them, and appends what it learned.
