@@ -2,7 +2,7 @@
 
 ## 0.1.2
 - Hydration check: a deliberately mismatched control page (`scripts/mismatch-proxy.mjs`) replaces the console probe as proof that the browser capture can see hydration errors; console messages are not reliably kept across navigations, uncaught exceptions are. Wait for hydration on each page and confirm React attached.
-- All four tested paths were checked for hydration in Chrome against the production server: no errors.
+- All four tested paths were checked for hydration in Chrome against the production server (37 pages, every page type in each new language): no errors.
 
 ## 0.1.1
 - The project profile moved from `.claude/multilingual/` to `.multilingual/`. Claude Code protects `.claude/`, so writing the profile there needed a permission prompt and failed in unattended runs. Move an existing profile with `git mv .claude/multilingual .multilingual`.

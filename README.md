@@ -64,7 +64,7 @@ Each path below has had one full run (translators, reviewers and verification in
 | Static export | `pages-router-site` with `output: 'export'` | stops and offers options |
 | One-off translation request | — | does not trigger |
 
-Inside the eval sandbox no local port can be bound, so served-build checks ran through Next.js's production request handler in-process. Hydration was then checked separately in Chrome against `next start` for all four results — 39 pages across every page type and locale — with a deliberately mismatched control page proving the capture works: no hydration errors.
+Inside the eval sandbox no local port can be bound, so served-build checks ran through Next.js's production request handler in-process. Hydration was then checked separately in Chrome against `next start` for all four results — 37 pages, every page type in the new language of each — with a deliberately mismatched control page proving the capture works: no hydration errors.
 
 ## The project profile
 
