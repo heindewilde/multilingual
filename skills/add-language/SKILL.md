@@ -25,6 +25,8 @@ The profile tells you the source language, the touchpoints, the content groups, 
 
 ## 1. Interview
 
+If you cannot ask questions (a non-interactive run, or AskUserQuestion is unavailable), don't stop: take the recommended default for every decision, write it to the locale file marked "(default, not confirmed)", and list every such assumption at the top of the PR body.
+
 Run `${CLAUDE_PLUGIN_ROOT}/shared/locale-interview.md` with AskUserQuestion. Recommend a default for each decision from the language's conventions and the existing locale files. Write the answers to `.claude/multilingual/locales/<code>.md`.
 
 If the target language reads right-to-left, uses a non-Latin script or has special casing rules, tell the user the scope grows and plan those changes before starting.

@@ -31,6 +31,8 @@ Then:
 
 ## 2. Interview
 
+If you cannot ask questions (a non-interactive run, or AskUserQuestion is unavailable), don't stop: take the recommended default for every decision, write it to the locale file marked "(default, not confirmed)", and list every such assumption at the top of the PR body.
+
 Use AskUserQuestion. Confirm what preflight detected, and ask, recommending a default each time:
 - **Source language** (detected from `<html lang>` and the copy) and the **first target language**.
 - **URL scheme**: subdirectories with the source language unprefixed (`/pricing` stays, `/es/pricing` is new) — recommended, keeps every existing URL and ranking. Localised pathnames (`/es/precios`) only on request.
