@@ -1,6 +1,6 @@
 # Locale interview
 
-Run this with AskUserQuestion before any agent starts. Agents working in parallel otherwise invent different URL slugs and translate the same term three different ways. Recommend a default for every question, based on the language's conventions and the existing locales. Record the answers in `.claude/multilingual/locales/<code>.md` (see `profile-spec.md`); they go into every translator and reviewer brief.
+Run this with AskUserQuestion before any agent starts. Agents working in parallel otherwise invent different URL slugs and translate the same term three different ways. Recommend a default for every question, based on the language's conventions and the existing locales. Record the answers in `.multilingual/locales/<code>.md` (see `profile-spec.md`); they go into every translator and reviewer brief.
 
 Keep each question self-contained: the user may only see the question dialog.
 

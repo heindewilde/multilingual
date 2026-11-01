@@ -1,9 +1,9 @@
 # Project profile
 
-The profile is how this plugin remembers a project. `make-multilingual` writes it from what it built; `add-language` reads it, follows it and appends to it. It lives in the user's repo and is committed with the code:
+The profile is how this plugin remembers a project. `make-multilingual` writes it from what it built; `add-language` reads it, follows it and appends to it. It lives in the user's repo, at the root, and is committed with the code. It is deliberately **not** under `.claude/`: Claude Code protects that folder, so writing there needs a permission prompt in a normal session and is denied outright in sandboxed and unattended runs.
 
 ```
-.claude/multilingual/
+.multilingual/
 ├── profile.md          # the project: stack, touchpoints, content groups, commands, modules
 └── locales/
     ├── de.md           # per-locale decisions and glossary

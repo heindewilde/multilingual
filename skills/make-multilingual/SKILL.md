@@ -40,7 +40,7 @@ Use AskUserQuestion. Confirm what preflight detected, and ask, recommending a de
 - **Content scope**: confirm which content gets translated (all UI strings always; which content directories and data files).
 - Then run `${CLAUDE_PLUGIN_ROOT}/shared/locale-interview.md` for the target language (variant, form of address, glossary, slugs, script issues).
 
-Write the per-locale answers to `.claude/multilingual/locales/<code>.md` now; the profile follows in step 7.
+Write the per-locale answers to `.multilingual/locales/<code>.md` now; the profile follows in step 7.
 
 ## 3. Plumbing — no visible change
 
@@ -68,7 +68,7 @@ With only the source locale configured, run `node ${CLAUDE_PLUGIN_ROOT}/scripts/
 
 ## 7. Write the profile
 
-Write `.claude/multilingual/profile.md` per `profile-spec.md`, from what you actually built: the exact touchpoints a new locale needs (by now you know every one — `routing.ts`, the messages file, content directories, switcher labels, any per-locale config), the content groups for translators and reviewers, the commands, the modules (seo on for public sites; hydration on; ui-names and fact-checks if the copy warrants), and a first Lessons line. Commit it.
+Write `.multilingual/profile.md` per `profile-spec.md`, from what you actually built: the exact touchpoints a new locale needs (by now you know every one — `routing.ts`, the messages file, content directories, switcher labels, any per-locale config), the content groups for translators and reviewers, the commands, the modules (seo on for public sites; hydration on; ui-names and fact-checks if the copy warrants), and a first Lessons line. Commit it.
 
 ## 8. Add the first language
 
@@ -81,7 +81,7 @@ One PR, commits in order: plumbing → extraction → content → SEO → profil
 - the locale decisions
 - the editing pass, source errors found, UI names verified
 - every verification result, and the bundle-size change
-- what the team does next time: run `/multilingual:add-language`, which reads `.claude/multilingual/profile.md`
+- what the team does next time: run `/multilingual:add-language`, which reads `.multilingual/profile.md`
 - unchecked items for anything not verified, at minimum "Native-speaker read"
 
 Don't merge unless the user asks.

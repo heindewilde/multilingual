@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "./routing";
 import { getPathname } from "./navigation";
 
-/** og:locale per locale (regional form, from .claude/multilingual/locales/<code>.md). */
+/** og:locale per locale (regional form, from .multilingual/locales/<code>.md). */
 const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
   nl: "nl_NL",

@@ -18,7 +18,7 @@ You can also just ask: "make this site available in Spanish", "add a German vers
 3. Asks you the decisions that matter, each with a recommended default: source and target language, URL scheme (default: `/es/…`, with your current URLs unchanged), no auto-redirect by browser language, form of address, glossary, which content to translate.
 4. Sets up [next-intl](https://next-intl.dev) with only your current language, moves routes under `[locale]`, extracts hard-coded strings into message files and loads content per locale. After **each** step it rebuilds and compares every page against the baseline: the site must say exactly the same, word for word, before anything is translated.
 5. Adds multilingual SEO — `<html lang>`, self-canonicals, reciprocal `hreflang` with `x-default`, sitemap alternates, `og:locale` — and a language switcher that links to the same page in the other language.
-6. Writes a **project profile** (`.claude/multilingual/`) recording what a new language touches in your codebase.
+6. Writes a **project profile** (`.multilingual/`) recording what a new language touches in your codebase.
 7. Adds the first language through the `add-language` process below, and prepares one pull request.
 
 **`add-language`** (a site that is already multilingual)
@@ -59,7 +59,7 @@ v0.1 is early. So far:
 
 ## The project profile
 
-`make-multilingual` writes `.claude/multilingual/profile.md` and one `locales/<code>.md` per language into your repo. They record the source language, the files a new locale must touch, how content is split between agents, your build and check commands, and decisions such as the form of address and the glossary. Commit them: the next `add-language` run follows them, and appends what it learned.
+`make-multilingual` writes `.multilingual/profile.md` and one `locales/<code>.md` per language into your repo. They record the source language, the files a new locale must touch, how content is split between agents, your build and check commands, and decisions such as the form of address and the glossary. Commit them: the next `add-language` run follows them, and appends what it learned.
 
 ## Bundled scripts
 
@@ -78,7 +78,7 @@ A run uses several parallel agents for translation and review, so it uses notice
 
 ## Contributing
 
-The process lives in `shared/` and is framework-neutral; framework knowledge lives in each skill's `references/`. To add a framework, add a reference for it (setup, routing, content loading, SEO), extend the preflight in `skills/make-multilingual/SKILL.md`, and add a fixture and eval case under `fixtures/` and `evals/`. Run the suite with:
+The process lives in `shared/` and is framework-neutral; framework knowledge lives in each skill's `references/`. To add a framework, add a reference for it (setup, routing, content loading, SEO), extend the preflight in `skills/make-multilingual/SKILL.md`, and add a fixture and eval case under `fixtures/` and `evals/`. Fixtures don't commit `node_modules`; run `npm ci` in each `fixtures/*` directory once before running evals, because the eval sandbox's network access to the npm registry is limited. Then run the suite with:
 
 ```
 NEXT_TELEMETRY_DISABLED=1 claude plugin eval . --scaffold --trust-plugin --ablation none --runs 1 \

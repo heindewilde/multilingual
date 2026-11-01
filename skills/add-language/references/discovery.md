@@ -1,6 +1,6 @@
 # Discovery: building a profile for a site that is already multilingual
 
-Use this when `add-language` runs on a site that serves two or more languages but has no `.claude/multilingual/profile.md` — for example, a site localised by hand or by another tool. The goal is the profile described in `${CLAUDE_PLUGIN_ROOT}/shared/profile-spec.md`, above all an exact **touchpoint list**: every place a new locale must be added.
+Use this when `add-language` runs on a site that serves two or more languages but has no `.multilingual/profile.md` — for example, a site localised by hand or by another tool. The goal is the profile described in `${CLAUDE_PLUGIN_ROOT}/shared/profile-spec.md`, above all an exact **touchpoint list**: every place a new locale must be added.
 
 ## Method: mirror the most recently added locale
 
@@ -20,6 +20,6 @@ Spend the effort here. A touchpoint missed now shows up later as a page that sil
 - **Content groups**: group content files by kind and size (UI messages, page copy, long-form articles, structured data) into three to five groups that agents can translate and review in parallel.
 - **Commands**: read `package.json` scripts and CI config for install, typecheck, lint, build and serve. Run the build once to confirm it passes before any change.
 - **Modules**: seo on if pages are public; hydration on for SSR/SSG React; ui-names on if the copy describes other products' interfaces; fact-checks on if copy cites structured data (prices, ratings, limits). Note existing checkers.
-- **Per-locale files**: write `.claude/multilingual/locales/<code>.md` for each existing locale from what the content shows (form of address, recurring terms). Mark anything inferred as "inferred".
+- **Per-locale files**: write `.multilingual/locales/<code>.md` for each existing locale from what the content shows (form of address, recurring terms). Mark anything inferred as "inferred".
 
 Show the profile to the user, ask them to correct it, and commit it on its own before starting the language.

@@ -1,5 +1,5 @@
 ---
 type: regex
-target: { source: file, path: .claude/multilingual/profile.md }
+target: { source: file, path: .multilingual/profile.md }
 pattern: "Locales:.*\\bde\\b"
 ---

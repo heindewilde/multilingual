@@ -1,4 +1,4 @@
 ---
 type: file_exists
-path: .claude/multilingual/profile.md
+path: .multilingual/profile.md
 ---

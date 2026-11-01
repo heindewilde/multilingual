@@ -12,7 +12,7 @@ import type {Metadata} from 'next';
 import {routing} from './routing';
 import {getPathname} from './navigation';
 
-const OG_LOCALE: Record<string, string> = {en: 'en_US', es: 'es_ES'}; // from .claude/multilingual/locales/*.md
+const OG_LOCALE: Record<string, string> = {en: 'en_US', es: 'es_ES'}; // from .multilingual/locales/*.md
 
 /** Canonical, hreflang alternates (incl. x-default) and og:locale for one internal path. */
 export function localeAlternates(locale: string, href: string): Pick<Metadata, 'alternates' | 'openGraph'> {
