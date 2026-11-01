@@ -1,0 +1,67 @@
+{
+  "Metadata": {
+    "siteName": "Tidynote",
+    "title": "Tidynote: snelle notities die overzichtelijk blijven",
+    "description": "Tidynote is een notitie-app die zo snel is als platte tekst en zo overzichtelijk als een database. Gratis op één apparaat, meer apparaten vanaf $9 per maand."
+  },
+  "Header": {
+    "homeLabel": "Tidynote-startpagina",
+    "pricing": "Prijzen",
+    "blog": "Blog",
+    "about": "Over ons"
+  },
+  "Footer": {
+    "copyright": "© {year} Tidynote. Gemaakt voor mensen die van opgeruimde notities houden.",
+    "contact": "Vragen? Stuur een e-mail naar {email}, dan antwoorden we binnen 1 werkdag."
+  },
+  "HomePage": {
+    "title": "Notities die net zo snel zijn als jij",
+    "intro": "Schrijf zo snel als je denkt. Tidynote zet elke notitie op een plek waar je hem terugvindt, zonder dat je mappen hoeft te beheren.",
+    "cta": "Bekijk abonnementen en prijzen",
+    "whyTitle": "Waarom mensen overstappen",
+    "reasons": {
+      "speed": "Opent in minder dan 1 seconde, zelfs met 10.000 notities",
+      "offline": "Werkt offline en synchroniseert zodra je weer online bent",
+      "export": "Je notities blijven van jou: exporteer alles naar Markdown"
+    },
+    "blogTitle": "Uit de blog",
+    "articleCount": "{count, plural, one {# artikel} other {# artikelen}} over hoe we Tidynote bouwen."
+  },
+  "AboutPage": {
+    "metaTitle": "Over Tidynote en het kleine team erachter",
+    "metaDescription": "Tidynote is gemaakt door een team van vier in Amsterdam. We zijn onafhankelijk, winstgevend en gefinancierd door klanten, niet door reclame of investeerders.",
+    "title": "Over ons",
+    "intro": "We zijn met z'n vieren in Amsterdam en we waren het zat om notities kwijt te raken.",
+    "independence": "Tidynote is sinds 2023 onafhankelijk. We verdienen alleen aan abonnementen, dus je notities zijn nooit het product.",
+    "teamImageAlt": "Het Tidynote-team op kantoor"
+  },
+  "BlogPage": {
+    "metaTitle": "Tidynote-blog: productupdates en hoe we werken",
+    "metaDescription": "Lees hoe we Tidynote bouwen, waarom we bepaalde keuzes maken en wat er in elke release is veranderd. Om de paar weken nieuwe artikelen, zonder poespas.",
+    "title": "Blog"
+  },
+  "PricingPage": {
+    "metaTitle": "Prijzen: eenvoudige abonnementen voor elke teamgrootte",
+    "metaDescription": "Vergelijk de Tidynote-abonnementen: Starter $9 per maand voor één persoon, Team $29 voor vijf en Business $79 voor twintig, elk met onbeperkt veel notities.",
+    "title": "Eenvoudige, eerlijke prijzen",
+    "intro": "Elk abonnement bevat een onbeperkt aantal notities. Je kunt op elk moment opzeggen.",
+    "price": "${price} per maand",
+    "seats": "{seats, plural, one {Voor # persoon} other {Voor maximaal # personen}}",
+    "trialTitle": "Start een gratis proefperiode van {plan}",
+    "trialCta": "Start gratis proefperiode",
+    "features": {
+      "unlimitedNotes": "Onbeperkt aantal notities",
+      "syncTwoDevices": "Synchronisatie tussen 2 apparaten",
+      "emailSupport": "Ondersteuning via e-mail",
+      "everythingInStarter": "Alles uit Starter",
+      "sharedWorkspaces": "Gedeelde werkruimtes",
+      "prioritySupport": "Voorrang bij ondersteuning",
+      "everythingInTeam": "Alles uit Team",
+      "sso": "SSO",
+      "auditLog": "Auditlog"
+    }
+  },
+  "LanguageSwitcher": {
+    "label": "Taal"
+  }
+}

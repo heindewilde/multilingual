@@ -1,0 +1,67 @@
+{
+  "Metadata": {
+    "siteName": "Tidynote",
+    "title": "Tidynote: fast notes that stay organised",
+    "description": "Tidynote is a note-taking app that is as fast as plain text and as organised as a database. Free for one device, from $9 a month for more."
+  },
+  "Header": {
+    "homeLabel": "Tidynote home",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "about": "About us"
+  },
+  "Footer": {
+    "copyright": "© {year} Tidynote. Made for people who like their notes tidy.",
+    "contact": "Questions? Write to {email} and we reply within 1 business day."
+  },
+  "HomePage": {
+    "title": "Notes that keep up with you",
+    "intro": "Write as fast as you think. Tidynote files every note where you will find it again, without folders to manage.",
+    "cta": "See plans and pricing",
+    "whyTitle": "Why people switch",
+    "reasons": {
+      "speed": "Opens in under 1 second, even with 10,000 notes",
+      "offline": "Works offline and syncs when you are back",
+      "export": "Your notes stay yours: export everything as Markdown"
+    },
+    "blogTitle": "From the blog",
+    "articleCount": "{count, plural, one {# article} other {# articles}} about how we build Tidynote."
+  },
+  "AboutPage": {
+    "metaTitle": "About Tidynote and the small team behind it",
+    "metaDescription": "Tidynote is made by a team of four in Amsterdam. We are independent, profitable and funded by our customers, not by advertising or investors.",
+    "title": "About us",
+    "intro": "We are four people in Amsterdam who got tired of losing notes.",
+    "independence": "Tidynote has been independent since 2023. We make money from subscriptions only, so your notes are never the product.",
+    "teamImageAlt": "The Tidynote team at their office"
+  },
+  "BlogPage": {
+    "metaTitle": "Tidynote blog: product updates and how we work",
+    "metaDescription": "Read how we build Tidynote, why we make the choices we do, and what changed in each release. New articles every couple of weeks, no fluff.",
+    "title": "Blog"
+  },
+  "PricingPage": {
+    "metaTitle": "Pricing: simple plans for every team size",
+    "metaDescription": "Compare Tidynote plans. Starter costs $9 a month for one person, Team $29 for five, and Business $79 for twenty, all with unlimited notes.",
+    "title": "Simple, honest pricing",
+    "intro": "Every plan includes unlimited notes. Cancel any time.",
+    "price": "${price} per month",
+    "seats": "{seats, plural, one {For # person} other {For up to # people}}",
+    "trialTitle": "Start a free trial of {plan}",
+    "trialCta": "Start free trial",
+    "features": {
+      "unlimitedNotes": "Unlimited notes",
+      "syncTwoDevices": "Sync across 2 devices",
+      "emailSupport": "Email support",
+      "everythingInStarter": "Everything in Starter",
+      "sharedWorkspaces": "Shared workspaces",
+      "prioritySupport": "Priority support",
+      "everythingInTeam": "Everything in Team",
+      "sso": "SSO",
+      "auditLog": "Audit log"
+    }
+  },
+  "LanguageSwitcher": {
+    "label": "Language"
+  }
+}
