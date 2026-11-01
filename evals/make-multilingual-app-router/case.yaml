@@ -3,5 +3,5 @@ name: make-multilingual-app-router
 context:
   scaffold_script: scaffold.sh
 execution:
-  timeout_seconds: 5400
-  max_turns: 600
+  timeout_seconds: 3600
+  max_turns: 200
