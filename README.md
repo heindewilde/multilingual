@@ -64,7 +64,7 @@ Each path below has had one full run (translators, reviewers and verification in
 | Static export | `pages-router-site` with `output: 'export'` | stops and offers options |
 | One-off translation request | — | does not trigger |
 
-Inside the eval sandbox no local port can be bound, so served-build checks ran through Next.js's production request handler in-process, and hydration was not checked in a browser.
+Inside the eval sandbox no local port can be bound, so served-build checks ran through Next.js's production request handler in-process. Hydration was then checked separately in Chrome against `next start` for all four results — 39 pages across every page type and locale — with a deliberately mismatched control page proving the capture works: no hydration errors.
 
 ## The project profile
 
@@ -79,6 +79,7 @@ Zero-dependency Node scripts in `scripts/`, usable on their own:
 | `snapshot.mjs record\|compare` | Every page's status, title, description, `lang` and visible text against a baseline |
 | `check-parity.mjs` | A translation against its source: message keys, ICU placeholders, Markdown headings, paragraphs, lists, links, code blocks and numbers (locale number formats tolerated) |
 | `check-seo.mjs` | Served pages: `lang`, self-canonical, title and description lengths, `og:locale`, reciprocal `hreflang` + `x-default`, sitemap alternates |
+| `mismatch-proxy.mjs` | Positive control for the hydration check: proxies a server and changes one string so React must report a mismatch |
 | `serve-static.mjs` | Serves a static export the way production hosts do (exact file, then `.html`, then `index.html`) |
 
 ## Cost
