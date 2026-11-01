@@ -27,7 +27,7 @@ Find out, don't assume:
 Then:
 1. Require a clean git tree. Create branch `feat/i18n-<code>`.
 2. Run the build. It must pass before any change; if it doesn't, stop and report.
-3. **Record the baseline.** Start the production server (`next start`, or `node ${CLAUDE_PLUGIN_ROOT}/scripts/serve-static.mjs out` for a static export) and run `node ${CLAUDE_PLUGIN_ROOT}/scripts/snapshot.mjs record --base <url> --out .multilingual-baseline.json` (add `--sitemap /sitemap.xml` if the site has one). Check the page count is plausible and that dynamic routes (blog posts, products) are included; add `--paths` for any the crawl missed. Keep the baseline file out of git (add it to `.gitignore`).
+3. **Record the baseline.** Start the production server (`next start`, or `node ${CLAUDE_PLUGIN_ROOT}/scripts/serve-static.mjs out` for a static export) and run `node ${CLAUDE_PLUGIN_ROOT}/scripts/snapshot.mjs record --base <url> --out .multilingual-baseline.json` (add `--sitemap /sitemap.xml` if the site has one). Check the page count is plausible and that dynamic routes (blog posts, products) are included; add `--paths` for any the crawl missed. Add two or three known-missing paths (e.g. `--paths /,/pricing,/this-page-does-not-exist`) so the gate also proves 404s stay 404s. Keep the baseline file out of git (add it to `.gitignore`).
 
 ## 2. Interview
 
@@ -64,7 +64,7 @@ Regression gate, commit ("Load content per locale").
 
 Follow `references/seo.md`: `<html lang>` per locale, self-referencing canonical, `hreflang` alternates with `x-default` in the HTML head, sitemap alternates, `og:locale`, localised metadata. Add a language switcher that links to the **same page** in the other language (not the other language's homepage), rendered as real `<a href>` links so crawlers can follow them.
 
-With only the source locale configured, run `node ${CLAUDE_PLUGIN_ROOT}/scripts/check-seo.mjs --base <url> --sitemap /sitemap.xml --site-url <production origin> --single-locale` and the regression gate. Commit ("Add multilingual SEO and a language switcher").
+With only the source locale configured, run `node ${CLAUDE_PLUGIN_ROOT}/scripts/check-seo.mjs --base <url> --sitemap /sitemap.xml --site-url <production origin> --single-locale` and the regression gate. The switcher's labels are the one intended text change: from here on, pass them to the gate as `--ignore-text "<exact switcher text>"` (as it appears in the baseline diff), and nothing else. Commit ("Add multilingual SEO and a language switcher").
 
 ## 7. Write the profile
 

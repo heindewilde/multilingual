@@ -13,6 +13,10 @@
  * meta description, <html lang>, and the visible body text (scripts, styles and tags
  * removed, whitespace collapsed). `compare` re-fetches the baseline's own page list, so
  * a route that disappeared is caught, and reports every page whose status or text changed.
+ *
+ * --ignore-text "<text>" (repeatable, compare only) removes an intended addition, such as
+ * the language switcher's labels, from the new text before comparing. Declare exactly what
+ * was added; everything else must still match.
  */
 import fs from 'node:fs';
 
@@ -27,6 +31,8 @@ if (!['record', 'compare'].includes(mode) || !base) {
   process.exit(2);
 }
 const max = Number(option('--max', 500));
+const ignored = rest.flatMap((a, i) => (a === '--ignore-text' ? [rest[i + 1]] : [])).filter(Boolean);
+const stripIgnored = (t = '') => ignored.reduce((acc, s) => acc.split(s).join(' '), t).replace(/\s+/g, ' ').trim();
 
 const NAMED = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: ' ' };
 const decode = (s) =>
@@ -38,7 +44,8 @@ const text = (html) =>
   decode(
     html
       .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, ' ')
-      .replace(/<!--[\s\S]*?-->/g, ' ')
+      // React separates adjacent text nodes with <!-- -->; it renders as nothing, not a space.
+      .replace(/<!--[\s\S]*?-->/g, '')
       .replace(/<[^>]+>/g, ' '),
   )
     .replace(/\s+/g, ' ')
@@ -114,9 +121,9 @@ if (mode === 'record') {
     for (const key of ['status', 'lang', 'title', 'description']) {
       if ((before[key] ?? '') !== (after[key] ?? '')) diffs.push(`${path}: ${key} was ${JSON.stringify(before[key])}, now ${JSON.stringify(after[key])}`);
     }
-    if (before.text !== after.text) {
-      const a = before.text ?? '';
-      const b = after.text ?? '';
+    if (stripIgnored(before.text) !== stripIgnored(after.text)) {
+      const a = stripIgnored(before.text);
+      const b = stripIgnored(after.text);
       let i = 0;
       while (i < a.length && a[i] === b[i]) i++;
       diffs.push(`${path}: body text differs at char ${i}: was "…${a.slice(Math.max(0, i - 40), i + 60)}…", now "…${b.slice(Math.max(0, i - 40), i + 60)}…"`);
@@ -128,5 +135,5 @@ if (mode === 'record') {
     console.log(`✗ ${diffs.length} difference(s) across ${n} page(s) — the source-language site changed`);
     process.exit(1);
   }
-  console.log(`✓ ${n} page(s) unchanged since the baseline`);
+  console.log(`✓ ${n} page(s) unchanged since the baseline${ignored.length ? ` (ignoring declared additions: ${ignored.map((t) => JSON.stringify(t)).join(', ')})` : ''}`);
 }

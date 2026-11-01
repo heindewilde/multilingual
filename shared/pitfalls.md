@@ -17,6 +17,7 @@ Generic lessons from real runs. Read before starting; add to the project profile
 - Prove every new pattern can see the new language: plant one wrong value, confirm it is flagged, restore the file from a backup.
 
 ## Verification
+- **Stop the previous production server before every gate.** A stale `next start` on the same port keeps serving the old build, and every comparison then passes. Kill it by port (`lsof -ti :3000 | xargs kill`) and confirm the new server is the one answering.
 - **Console capture in Chrome starts on the first `read_console_messages` call.** Call it once before loading the first page, then log a probe error. A run that skipped this returned "no messages", probe included, which looked like a pass.
 - **Serve the built output the way production does.** Many preview servers fall back to the homepage for every unknown path, so every page "hydrates" against the wrong HTML. Use `scripts/serve-static.mjs` (exact file first, then `<path>/index.html`) for static exports, or the framework's own production server.
 - **A hydration mismatch silently discards server-rendered HTML.** Common causes: `Math.random()`/`Date.now()` in render, locale-dependent formatting that differs between server and client, providers nested differently on server and client.

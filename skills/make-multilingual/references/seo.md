@@ -54,7 +54,7 @@ One `<SeoHead>` component used by every page, built from `useRouter()` (`locale`
 
 ## Language switcher
 - Link to the **same page** in the other language — the same URL its hreflang alternate gives — not to the other language's homepage.
-- Real `<a href>` links (`Link` from `@/i18n/navigation` with `locale`, or Pages Router `<Link locale>`), so crawlers can follow them.
+- Real `<a href>` links, so crawlers can follow them. **App Router:** build each `href` with `getPathname({locale, href})` from `@/i18n/navigation`, the same function the hreflang alternates use. `<Link locale="en">` renders `/en/…` for the source locale, which then 307-redirects under `localePrefix: 'as-needed'`, so the switcher would disagree with hreflang. **Pages Router:** `<Link href={router.asPath} locale="…">`.
 - Label each language in its own language ("Deutsch", "Español"), with `lang` and `hrefLang` attributes on the link.
 - No flags for languages (a language is not a country).
 

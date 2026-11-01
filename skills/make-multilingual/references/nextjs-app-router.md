@@ -86,12 +86,14 @@ If `next.config` has `output: 'export'`: there is no proxy/middleware in a stati
     return (
       <html lang={locale}>  {/* keep every existing attribute, class and font variable */}
         <body>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider messages={pick(messages, CLIENT_NAMESPACES)}>{children}</NextIntlClientProvider>
         </body>
       </html>
     );
   }
   ```
+  Without a `messages` prop the provider sends the **whole** catalogue to the browser on every page. Pass only the namespaces client components use (`const messages = await getMessages()` plus a small `pick` helper over a `CLIENT_NAMESPACES` list), and record that list as a touchpoint in the profile: a new client component that calls `useTranslations` must add its namespace there.
+
   Keep everything the old root layout did (fonts, providers, analytics, `metadataBase`) in the same order, so `useId`-based IDs and hydration don't shift.
 - **Dynamic segments** (`[slug]`): `generateStaticParams` now runs per locale and receives `{locale}` from the parent; return the slugs that exist for that locale.
 - **404s**: preserve existing behaviour. Add `app/[locale]/[...rest]/page.tsx` that calls `notFound()` so unknown paths under a locale render the localised not-found page, and check a known-missing path still returns 404.
